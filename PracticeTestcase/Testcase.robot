@@ -7,6 +7,10 @@ Resource          GeneralKeyword.robot
 
 *** Test Cases ***
 Create a new Requirement
+    Wait Until Element Is Visible    ${tabRequirement}    ${Timeout60}
+    Click Element    ${tabRequirement}
+    Wait Until Element Is Visible    ${Testproject}    ${Timeout15}    ${NotifyError}
+    Click Element    ${Testproject}
     Delete Requirement    ${Module}
     Wait Until Element Is Enabled    ${newModuleButton}    ${Timeout15}    ${NotifyError}
     Click Element    ${newModuleButton}
@@ -21,12 +25,8 @@ Create a new Requirement
     Click Element    ${newReqButton}
     Wait Until Element Is Visible    ${inputNameRequirement}    ${Timeout15}    ${NotifyError}
     Press Key    ${inputNameRequirement}    ${TextNameRequirement}
-    Click Element    ${btnPriority}
-    Wait Until Element Is Visible    ${selectPriority}
-    Click Element    ${selectPriority}
-    Click Element    ${btnType}
-    Wait Until Element Is Visible    ${selectType}
-    Click Element    ${selectType}
+    Select Element    ${btnPriority}    ${selectPriority}
+    Select Element    ${btnType}    ${selectType}
     Click Element    ${btnAssign}
     Wait Until Element Is Enabled    ${selectAssign}
     Select Checkbox    ${selectAssign}
@@ -80,25 +80,19 @@ Update a requirement
     Click Element    ${textInputUpReq}
     Wait Until Element Is Visible    ${inputUpdateReq}    ${Timeout15}
     Press Key    ${inputUpdateReq}    ${TextReqUp}
-    Click Element    ${btnStatusUp}
-    Wait Until Element Is Visible    ${selectStatusUp}
-    Click Element    ${selectStatusUp}
-    Click Element    ${btnPriority}
-    Wait Until Element Is Visible    ${selectPriorityUp}
-    Click Element    ${selectPriorityUp}
-    Click Element    ${btnType}
-    Wait Until Element Is Visible    ${selectTypeUp}
-    Click Element    ${selectTypeUp}
+    Select Element    ${btnStatusUp}    ${selectStatusUp}
+    Select Element    ${btnPriority}    ${selectPriorityUp}
+    Select Element    ${btnType}    ${selectTypeUp}
     Click Element    ${btnAssign}
-    Wait Until Element Is Enabled    ${selectAssignUp}
+    Wait Until Element Is Visible    ${clearAllBtn}
+    Click Element    ${clearAllBtn}
     Click Element    ${selectAssignUp}
     Select Frame    ${iframeReq}
     Input Text    ${inputIframeReq}    ${TextDesReqUp}
     Unselect Frame
     Wait Until Element Is Visible    ${btnSave}
     Click Element    ${btnSave}
-    ${TextReq}=    Get Text    ${textInputUpReq}
-    Should Be True    '${TextReq}'=='${TextReqUp}'
+    Element Text Should Be    ${textInputUpReq}    ${TextReqUp}
     ${Status}    Get Value    ${StatusInput}
     Should Be True    '${Status}'=='${TextStatus}'
     ${Priority}    Get Value    ${PriorityInput}
@@ -119,10 +113,7 @@ Delete a requirement
     Wait Until Element Is Visible    ${selectDeleteReq}
     Click Element    ${selectDeleteReq}
     Open Context Menu    ${selectDeleteReq}
-    Wait Until Element Is Visible    ${btnDelete}
-    Click Element    ${btnDelete}
-    Wait Until Element Is Visible    ${DialogUnderlay}
-    Click Element    ${btnYes}
+    Click Delete
     Wait Until Element Is Visible    ${Module}
     Click Element    ${Module}
     Wait Until Element Is Visible    ${numberRequirement}
@@ -159,14 +150,11 @@ Delete a Sub Module
     ${numberSub1}=    Get Text    ${numberSubModule}
     ${icon}    Run Keyword And Return Status    Element Should Be Visible    ${iconSubModule}
     Run Keyword If    ${icon}    Click Element    ${iconSubModule}
-    Wait Until Element Is Visible    ${selectDelSubModule}
+    Wait Until Element Is Visible    ${selectDelSubModule}    ${Timeout15}
     Click Element    ${selectDelSubModule}
     Open Context Menu    ${selectDelSubModule}
-    Wait Until Element Is Visible    ${btnDelete}
-    Click Element    ${btnDelete}
-    Wait Until Element Is Visible    ${DialogUnderlay}
-    Click Element    ${btnYes}
-    Wait Until Element Is Visible    ${Module2}
+    Click Delete
+    Wait Until Element Is Visible    ${Module2}    ${Timeout15}
     Click Element    ${Module2}
     Wait Until Element Is Visible    ${numberSubModule}
     ${numberSub2}=    Get Text    ${numberSubModule}

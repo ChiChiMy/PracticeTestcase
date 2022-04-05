@@ -20,7 +20,7 @@ ${TextDesReqUp}    requirement description
 ${TextStatus}     In Progress
 ${TextPriority}    Must have
 ${TextType}       Non-functional
-${TextAssign}     All
+${TextAssign}     Demo User
 # XPATH
 ${ModalSession}    //body[@class="modal-open"]
 ${url}            https://apitryout.qtestnet.com/
@@ -28,6 +28,7 @@ ${usernameInput}    //input[@id='userName']
 ${passwordInput}    //input[@id='password']
 ${btnLogin}       //div[@class='submit']
 ${tabRequirement}    //span[@widgetid="working-tab_requirementId"]
+${NameModule}     //span[@id="moduleHeader_editableContent"]
 ${newModuleButton}    //span[@id="btnNewModule"]
 ${Testproject}    //div[@id="requirement-tree-content"]//span[@class="icon icon-root"]//parent::div
 ${reloadButton}    //button[@id="moduleHeader_btnReload"]
@@ -58,7 +59,9 @@ ${btnStatusUp}    //div[@id="widget_statusRequirement_selectNode"]//input[@value
 ${selectStatusUp}    //div[@class="dijitReset dijitMenuItem" and text()="In Progress"]
 ${selectTypeUp}    //div[@class="dijitReset dijitMenuItem" and text()="Non-functional"]
 ${selectPriorityUp}    //div[@class="dijitReset dijitMenuItem" and text()="Must have"]
-${selectAssignUp}    //label[@class="select-action-label" and text()="Select all"]
+#${selectAssignUp}    //label[@class="select-action-label" and text()="Select all"]
+${clearAllBtn}		//label[text()="Clear all"]
+${selectAssignUP}	//div[@class="dijitReset dojoxMultiSelectItem"][2]//div[text()="Demo User"]//preceding-sibling::div/input
 ${selectDeleteReq}    //div[@class="children-container removable"]//span[text()="Requirements"]
 ${btnDeleteReq}    //li[@id="contextMenuGrid-common.delete"]
 ${iconSubModule}    //span[@class="text" and text()= "testSub"]//preceding-sibling::span[@class="icon icon-collapsed toggle"]
