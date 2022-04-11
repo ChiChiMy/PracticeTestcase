@@ -11,7 +11,7 @@ Resource          GeneralXpath.robot
 Create a new Test Case
     [Tags]    TC7
     Create New Module For TestDesign
-    Wait Until Element Is Visible    ${numberTestCaseDes}
+    Wait Until Element Is Visible    ${numberTestCaseDes}    ${timeout_15s}
     ${numberTC1}    Get Text    ${numberTestCaseDes}
     Create New Test Case    ${textNameTestCase}
     Wait Until Element Is Enabled    ${testcaseInput}    ${timeout_15s}
@@ -20,7 +20,7 @@ Create a new Test Case
     Click Element    ${moduleDesign}
     Wait Until Element Is Visible    ${nameModule}    ${timeout_15s}
     Element Text Should Be    ${nameModule}    ${textNameModuleDes}
-    Wait Until Element Is Visible    ${numberTestCaseDes}
+    Wait Until Element Is Visible    ${numberTestCaseDes}    ${timeout_15s}
     ${numberTC2}    Get Text    ${numberTestCaseDes}
     Verify Create Success    ${numberTC1}    ${numberTC2}
 
@@ -35,10 +35,10 @@ Update a Test Case
     Click Element    ${selectUpTestCase}
     Wait Until Element Is Visible    ${nameTestCase}    ${timeout_15s}
     Click Element    ${nameTestCase}
-    Wait Until Element Is Visible    ${testcaseInput}
+    Wait Until Element Is Visible    ${testcaseInput}    ${timeout_15s}
     Press Key    ${testcaseInput}    ${textnameUpTC}
     Select From List By Label    ${selectStatusTC}    ${textStatusUpTC}
-    Wait Until Element Is Enabled    ${selectTypeTC}
+    Wait Until Element Is Enabled    ${selectTypeTC}    ${timeout_15s}
     Select From List By Label    ${selectTypeTC}    ${textTypeUpTC}
     Click Element    ${assignToTextBox}
     Wait Until Element Is Visible    ${clearAllButton}    ${timeout_15s}
@@ -52,17 +52,17 @@ Update a Test Case
     Wait Until Element Is Enabled    ${selectpriorityTC}
     Select From List By Label    ${selectpriorityTC}    ${textPriorityUpTC}
     Click Element    ${step_1Description}
-    Wait Until Element Is Visible    ${testStepInput}
+    Wait Until Element Is Visible    ${testStepInput}    ${timeout_15s}
     Clear Element Text    ${testStepInput}
     Press Keys    ${testStepInput}    ${textstep1Up}
     Click Element    ${step_2Description}
-    Wait Until Element Is Visible    ${testStepInput}
+    Wait Until Element Is Visible    ${testStepInput}    ${timeout_15s}
     Clear Element Text    ${testStepInput}
     Press Keys    ${testStepInput}    ${textstep2Up}
     Click Element    ${saveTCButton}
     Wait Until Element Is Visible    ${nameTestCase}    ${timeout_15s}
     Element Text Should Be    ${nameTestCase}    ${textnameUpTC}
-    Wait Until Element Is Visible    ${selectStatusTC}
+    Wait Until Element Is Visible    ${selectStatusTC}    ${timeout_15s}
     List Selection Should Be    ${selectStatusTC}    ${textStatusUpTC}
     List Selection Should Be    ${selectTypeTC}    ${textTypeUpTC}
     List Selection Should Be    ${selectpriorityTC}    ${textPriorityUpTC}

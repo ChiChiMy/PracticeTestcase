@@ -15,7 +15,7 @@ Create a new Requirement
     ${numberReq1}=    Get Text    ${numberRequirement}
     Create New Requirement    ${textNameRequirement}
     Click Element    ${module}
-    Wait Until Element Is Visible    ${numberRequirement}
+    Wait Until Element Is Visible    ${numberRequirement}    ${timeout_15s}
     ${numberReq2}=    Get Text    ${numberRequirement}
     Verify Create Success    ${numberReq1}    ${numberReq2}
 
@@ -24,11 +24,11 @@ Create a new Sub Module
     [Setup]    Run Keywords    Create New Module For Requirement
     Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
-    Wait Until Element Is Visible    ${numberSubModule}
+    Wait Until Element Is Visible    ${numberSubModule}    ${timeout_15s}
     ${numberSub1}=    Get Text    ${numberSubModule}
     Create New Sub Module    ${textNameSubModule}
     Click Element    ${module}
-    Wait Until Element Is Visible    ${numberSubModule}
+    Wait Until Element Is Visible    ${numberSubModule}    ${timeout_15s}
     ${numberSub2}=    Get Text    ${numberSubModule}
     Verify Create Success    ${numberSub1}    ${numberSub2}
 
@@ -48,13 +48,13 @@ Update a Requirement
     Select ComboBox    ${priorityButton}    ${selectPriorityUp}
     Select ComboBox    ${typeButton}    ${selectTypeUp}
     Click Element    ${assignButton}
-    Wait Until Element Is Visible    ${clearAllButton}
+    Wait Until Element Is Visible    ${clearAllButton}    ${timeout_15s}
     Click Element    ${clearAllButton}
     Click Element    ${selectAssignUp}
     Select Frame    ${descriptionReqIframe}
     Input Text    ${descriptionReqInput}    ${textDescriptionReqUp}
     Unselect Frame
-    Wait Until Element Is Visible    ${saveButton}
+    Wait Until Element Is Visible    ${saveButton}    ${timeout_15s}
     Click Element    ${saveButton}
     Element Text Should Be    ${nameReqUpLocator}    ${textRequirementUp}
     ${Status}    Get Value    ${statusInput}
@@ -73,14 +73,14 @@ Delete a Requirement
     ...    AND    Create New Requirement    ${textNameRequirement}
     Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
-    Wait Until Element Is Visible    ${numberRequirement}
+    Wait Until Element Is Visible    ${numberRequirement}    ${timeout_15s}
     ${numberReq1}=    Get Text    ${numberRequirement}
     ${icon}    Run Keyword And Return Status    Element Should Be Visible    ${iconRequirement}
     Run Keyword If    ${icon}    Click Element    ${iconRequirement}
     Right Click And Delete    ${selectDeleteReq}
-    Wait Until Element Is Visible    ${module}
+    Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
-    Wait Until Element Is Visible    ${numberRequirement}
+    Wait Until Element Is Visible    ${numberRequirement}    ${timeout_15s}
     ${numberReq2}=    Get Text    ${numberRequirement}
     Verify Delete Success    ${numberReq1}    ${numberReq2}
 
@@ -92,9 +92,9 @@ Update a Sub Module
     Click Element    ${module}
     ${icon}    Run Keyword And Return Status    Element Should Be Visible    ${iconSubModule}
     Run Keyword If    ${icon}    Click Element    ${iconSubModule}
-    Wait Until Element Is Visible    ${selectSubModuleUp}
+    Wait Until Element Is Visible    ${selectSubModuleUp}    ${timeout_15s}
     Click Element    ${selectSubModuleUp}
-    Wait Until Element Is Visible    ${nameSMLocator}
+    Wait Until Element Is Visible    ${nameSMLocator}    ${timeout_15s}
     Click Element    ${nameSMLocator}
     Wait Until Element Is Visible    ${nameModuleInput}    ${timeout_15s}
     Press Key    ${nameModuleInput}    ${textNameSubModuleUp}
@@ -103,11 +103,11 @@ Update a Sub Module
     Select Frame    ${iframeSubModule}
     Input Text    ${descriptionSMInput}    ${textDescriptionSMUp}
     Unselect Frame
-    Wait Until Element Is Visible    ${saveSMButton}
+    Wait Until Element Is Visible    ${saveSMButton}    ${timeout_15s}
     Click Button    ${saveSMButton}
     ${TextSub}    Get Text    ${nameSMLocator}
     Should Be True    '${TextSub}'=='${textNameSubModuleUp}'
-    Wait Until Element Is Visible    ${iframeSubModule}
+    Wait Until Element Is Visible    ${iframeSubModule}    ${timeout_15s}
     Frame Should Contain    ${iframeSubModule}    ${textDescriptionSMUp}
 
 Delete a Sub Module
@@ -117,7 +117,7 @@ Delete a Sub Module
     #[Setup]    Create New Sub Module    ${textNameSubModule}
     Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
-    Wait Until Element Is Visible    ${numberSubModule}
+    Wait Until Element Is Visible    ${numberSubModule}    ${timeout_15s}
     ${numberSub1}=    Get Text    ${numberSubModule}
     ${icon}    Run Keyword And Return Status    Element Should Be Visible    ${iconSubModule}
     Run Keyword If    ${icon}    Click Element    ${iconSubModule}
@@ -126,7 +126,7 @@ Delete a Sub Module
     Right Click And Delete    ${selectSubModuleDel}
     Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
-    Wait Until Element Is Visible    ${numberSubModule}
+    Wait Until Element Is Visible    ${numberSubModule}    ${timeout_15s}
     ${numberSub2}=    Get Text    ${numberSubModule}
     Verify Delete Success    ${numberSub1}    ${numberSub2}
 

@@ -51,39 +51,39 @@ Create New Requirement
     Select ComboBox    ${priorityButton}    ${selectPriority}
     Select ComboBox    ${typeButton}    ${selectType}
     Click Element    ${assignButton}
-    Wait Until Element Is Enabled    ${selectAssign}
+    Wait Until Element Is Enabled    ${selectAssign}    ${timeout_15s}
     Select Checkbox    ${selectAssign}
-    Wait Until Element Is Visible    ${descriptionReqIframe}
+    Wait Until Element Is Visible    ${descriptionReqIframe}    ${timeout_15s}
     Select Frame    ${descriptionReqIframe}
     Input Text    ${descriptionReqInput}    ${textDescriptionReq}
     Unselect Frame
-    Wait Until Element Is Visible    ${saveButton}
+    Wait Until Element Is Visible    ${saveButton}    ${timeout_15s}
     Click Element    ${saveButton}
 
 Create New Sub Module
     [Arguments]    ${name}
-    Wait Until Element Is Visible    ${Module}
+    Wait Until Element Is Visible    ${Module}    ${timeout_15s}
     Click Element    ${Module}
     Open Context Menu    ${Module}
     Click Element    ${newSubModuleButton}
-    Wait Until Element Is Visible    ${nameModuleInput}
+    Wait Until Element Is Visible    ${nameModuleInput}    ${timeout_15s}
     Press Key    ${nameModuleInput}    ${name}
     Click Element    ${tabProperties}
-    Wait Until Element Is Visible    ${iframeSubModule}
+    Wait Until Element Is Visible    ${iframeSubModule}    ${timeout_15s}
     Select Frame    ${iframeSubModule}
     Input Text    ${descriptionSMInput}    ${textDescriptionSM}
     Unselect Frame
-    Wait Until Element Is Visible    ${saveSMButton}
+    Wait Until Element Is Visible    ${saveSMButton}    ${timeout_15s}
     Click Button    ${saveSMButton}
 
 Create New Test Case
     [Arguments]    ${name}
-    Wait Until Element Is Visible    ${moduleDesign}
+    Wait Until Element Is Visible    ${moduleDesign}    ${timeout_15s}
     Click Element    ${moduleDesign}
     Open Context Menu    ${moduleDesign}
-    Wait Until Element Is Visible    ${textcaseButton}
+    Wait Until Element Is Visible    ${textcaseButton}    ${timeout_15s}
     Click Element    ${textcaseButton}
-    Wait Until Element Is Visible    ${testcaseInput}
+    Wait Until Element Is Visible    ${testcaseInput}    ${timeout_15s}
     Press Key    ${testcaseInput}    ${name}
     Select ComboBox    ${statusTextBox}    ${selectStatus}
     Select ComboBox    ${typeTextBox}    ${selectType}
@@ -97,16 +97,16 @@ Create New Test Case
     #Select Checkbox    ${checkboxTesting}
     Wait Until Element Is Enabled    ${preTestStep}    ${timeout_15s}
     Click Element    ${preTestStep}
-    Wait Until Element Is Visible    ${testStepInput}
+    Wait Until Element Is Visible    ${testStepInput}    ${timeout_15s}
     Press Keys    ${testStepInput}    ${textprecodition}
     Click Element    ${addButton}
-    Wait Until Element Is Visible    ${testStepInput}
+    Wait Until Element Is Visible    ${testStepInput}    ${timeout_15s}
     Press Keys    ${testStepInput}    ${textstep1}
     Click Element    ${addButton}
-    Wait Until Element Is Visible    ${testStepInput}
+    Wait Until Element Is Visible    ${testStepInput}    ${timeout_15s}
     Press Keys    ${testStepInput}    ${textstep2}
     Click Element    ${selectExpected}
-    Wait Until Element Is Visible    ${testStepInput}
+    Wait Until Element Is Visible    ${testStepInput}    ${timeout_15s}
     Press Keys    ${testStepInput}    ${expected}
     Click Element    ${saveTCButton}
 
@@ -124,9 +124,9 @@ Right Click And Delete
     Wait Until Element Is Visible    ${locator}
     Click Element    ${locator}
     Open Context Menu    ${locator}
-    Wait Until Element Is Visible    ${deleteButton}
+    Wait Until Element Is Visible    ${deleteButton}    ${timeout_15s}
     Click Element    ${deleteButton}
-    Wait Until Element Is Visible    ${dialogUnderlay}
+    Wait Until Element Is Visible    ${dialogUnderlay}    ${timeout_15s}
     Click Element    ${yesButton}
     Set Selenium Timeout    5
 
