@@ -2,15 +2,16 @@
 Suite Setup       Login page
 Suite Teardown    Close Browser
 Test Teardown     Delete Element With Locator    ${module}
-Library           SeleniumLibrary
 Resource          GeneralKeyword.robot
 Resource          XpathRequirement.robot
 Resource          GeneralXpath.robot
+Library           SeleniumLibrary
+Resource          KeywordRequirement.robot
 
 *** Test Cases ***
 Create a new Requirement
     [Tags]    TC1
-    [Setup]    Run Keywords    Create New Module For Requirement
+    [Setup]    Create New Module For Requirement    ${textNameModule}
     Wait Until Element Is Visible    ${numberRequirement}    ${timeout_15s}
     ${numberReq1}=    Get Text    ${numberRequirement}
     Create New Requirement    ${textNameRequirement}
@@ -21,7 +22,7 @@ Create a new Requirement
 
 Create a new Sub Module
     [Tags]    TC2
-    [Setup]    Run Keywords    Create New Module For Requirement
+    [Setup]    Create New Module For Requirement    ${textNameModule}
     Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
     Wait Until Element Is Visible    ${numberSubModule}    ${timeout_15s}
@@ -34,7 +35,7 @@ Create a new Sub Module
 
 Update a Requirement
     [Tags]    TC3
-    [Setup]    Run Keywords    Create New Module For Requirement
+    [Setup]    Run Keywords    Create New Module For Requirement    ${textNameModule}
     ...    AND    Create New Requirement    ${textNameRequirement}
     Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
@@ -69,7 +70,7 @@ Update a Requirement
 
 Delete a Requirement
     [Tags]    TC4
-    [Setup]    Run Keywords    Create New Module For Requirement
+    [Setup]    Run Keywords    Create New Module For Requirement    ${textNameModule}
     ...    AND    Create New Requirement    ${textNameRequirement}
     Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
@@ -86,15 +87,15 @@ Delete a Requirement
 
 Update a Sub Module
     [Tags]    TC5
-    [Setup]    Run Keywords    Create New Module For Requirement
+    [Setup]    Run Keywords    Create New Module For Requirement    ${textNameModule}
     ...    AND    Create New Sub Module    ${textNameSubModule}
     Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
     ${icon}    Run Keyword And Return Status    Element Should Be Visible    ${iconSubModule}
     Run Keyword If    ${icon}    Click Element    ${iconSubModule}
-    Wait Until Element Is Visible    ${selectSubModuleUp}    ${timeout_15s}
+    Wait Until Element Is Visible    ${selectSubModuleUp}
     Click Element    ${selectSubModuleUp}
-    Wait Until Element Is Visible    ${nameSMLocator}    ${timeout_15s}
+    Wait Until Element Is Visible    ${nameSMLocator}
     Click Element    ${nameSMLocator}
     Wait Until Element Is Visible    ${nameModuleInput}    ${timeout_15s}
     Press Key    ${nameModuleInput}    ${textNameSubModuleUp}
@@ -107,14 +108,13 @@ Update a Sub Module
     Click Button    ${saveSMButton}
     ${TextSub}    Get Text    ${nameSMLocator}
     Should Be True    '${TextSub}'=='${textNameSubModuleUp}'
-    Wait Until Element Is Visible    ${iframeSubModule}    ${timeout_15s}
+    Wait Until Element Is Visible    ${iframeSubModule}
     Frame Should Contain    ${iframeSubModule}    ${textDescriptionSMUp}
 
 Delete a Sub Module
     [Tags]    TC6
-    [Setup]    Run Keywords    Create New Module For Requirement
+    [Setup]    Run Keywords    Create New Module For Requirement    ${textNameModule}
     ...    AND    Create New Sub Module    ${textNameSubModule}
-    #[Setup]    Create New Sub Module    ${textNameSubModule}
     Wait Until Element Is Visible    ${module}    ${timeout_15s}
     Click Element    ${module}
     Wait Until Element Is Visible    ${numberSubModule}    ${timeout_15s}
@@ -129,5 +129,3 @@ Delete a Sub Module
     Wait Until Element Is Visible    ${numberSubModule}    ${timeout_15s}
     ${numberSub2}=    Get Text    ${numberSubModule}
     Verify Delete Success    ${numberSub1}    ${numberSub2}
-
-*** Keywords ***

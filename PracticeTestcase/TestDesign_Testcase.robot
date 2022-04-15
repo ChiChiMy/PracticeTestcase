@@ -6,11 +6,12 @@ Resource          GeneralKeyword.robot
 Library           SeleniumLibrary
 Resource          XpathTestDesign.robot
 Resource          GeneralXpath.robot
+Resource          KeywordTestDesign.robot
 
 *** Test Cases ***
 Create a new Test Case
     [Tags]    TC7
-    Create New Module For TestDesign
+    [Setup]    Create New Module For TestDesign    ${textNameModuleDes}
     Wait Until Element Is Visible    ${numberTestCaseDes}    ${timeout_15s}
     ${numberTC1}    Get Text    ${numberTestCaseDes}
     Create New Test Case    ${textNameTestCase}
@@ -26,7 +27,7 @@ Create a new Test Case
 
 Update a Test Case
     [Tags]    TC8
-    [Setup]    Run Keywords    Create New Module For TestDesign
+    [Setup]    Run Keywords    Create New Module For TestDesign    ${textNameModuleDes}
     ...    AND    Create New Test Case    ${textNameTestCase}
     Click Element    ${moduleDesign}
     ${icon}    Run Keyword And Return Status    Element Should Be Visible    ${iconTestCse}
@@ -62,7 +63,7 @@ Update a Test Case
     Click Element    ${saveTCButton}
     Wait Until Element Is Visible    ${nameTestCase}    ${timeout_15s}
     Element Text Should Be    ${nameTestCase}    ${textnameUpTC}
-    Wait Until Element Is Visible    ${selectStatusTC}    ${timeout_15s}
+    Wait Until Element Is Visible    ${selectStatusTC}
     List Selection Should Be    ${selectStatusTC}    ${textStatusUpTC}
     List Selection Should Be    ${selectTypeTC}    ${textTypeUpTC}
     List Selection Should Be    ${selectpriorityTC}    ${textPriorityUpTC}
@@ -74,7 +75,7 @@ Update a Test Case
 
 Delete a Test Case
     [Tags]    TC9
-    [Setup]    Run Keywords    Create New Module For TestDesign
+    [Setup]    Run Keywords    Create New Module For TestDesign    ${textNameModuleDes}
     ...    AND    Create New Test Case    ${textNameTestCase}
     Wait Until Element Is Visible    ${moduleDesign}    ${timeout_15s}
     Click Element    ${moduleDesign}
