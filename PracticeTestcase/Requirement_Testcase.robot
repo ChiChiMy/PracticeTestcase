@@ -2,6 +2,7 @@
 Suite Setup       Login page
 Suite Teardown    Close Browser
 Test Teardown     Delete Element With Locator    ${module}
+Force Tags        Req
 Resource          GeneralKeyword.robot
 Resource          XpathRequirement.robot
 Resource          GeneralXpath.robot
@@ -57,6 +58,7 @@ Update a Requirement
     Unselect Frame
     Wait Until Element Is Visible    ${saveButton}    ${timeout_15s}
     Click Element    ${saveButton}
+    Set Selenium Timeout    5
     Element Text Should Be    ${nameReqUpLocator}    ${textRequirementUp}
     ${Status}    Get Value    ${statusInput}
     Should Be True    '${Status}'=='${textStatus}'

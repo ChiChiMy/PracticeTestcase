@@ -6,7 +6,7 @@ ${timeout_60s}    60
 ${timeout_15s}    15
 ${timeout_10s}    10
 ${notifyError}    error
-${seleniumSpeed}    0.5
+${seleniumSpeed}    0.3
 ${modalSession}    //body[@class="modal-open"]
 ${url}            https://apitryout.qtestnet.com/
 ${usernameInput}    //input[@id='userName']
@@ -20,7 +20,6 @@ ${yesButton}      //span[@class="dijitReset dijitInline dijitButtonText" and tex
 ${deleteButton}    //span[@class="icon-text" and @title="Delete"]
 #######
 @{_tmp}           browserName: chrome,    platformName: WIN10
-#@{_tmp}          browserName: chrome,    platform: WIN10,    platformName: windows,    version: 10.0,    username: USERNAME,    accessKey: ACCESSKEY,    video: True
 ${browser}        chrome
 ${capabilities}    ${EMPTY.join(${_tmp})}
 ${remote_url}     http://192.168.199.198:4444

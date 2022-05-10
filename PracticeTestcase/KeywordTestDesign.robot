@@ -29,8 +29,9 @@ Create New Test Case
     Select Frame    ${iframeTC}
     Input Text    ${inputIframeTC}    ${textDescription}
     Unselect Frame
+    Wait Until Element Is Enabled    ${selectpriorityTC}
+    Select From List By Label    ${selectpriorityTC}    ${textPriorityTC}
     Select ComboBox    ${priorityTextBox}    ${selectpriority}
-    #Select Checkbox    ${checkboxTesting}
     Wait Until Element Is Enabled    ${preTestStep}    ${timeout_15s}
     Click Element    ${preTestStep}
     Wait Until Element Is Visible    ${testStepInput}    ${timeout_15s}
@@ -45,3 +46,4 @@ Create New Test Case
     Wait Until Element Is Visible    ${testStepInput}    ${timeout_15s}
     Press Keys    ${testStepInput}    ${expected}
     Click Element    ${saveTCButton}
+    Set Selenium Timeout    5

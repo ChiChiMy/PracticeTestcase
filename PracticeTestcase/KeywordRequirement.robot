@@ -41,7 +41,7 @@ Create New Sub Module
     Wait Until Element Is Visible    ${nameModuleInput}    ${timeout_15s}
     Press Key    ${nameModuleInput}    ${name}
     Click Element    ${tabProperties}
-    Wait Until Element Is Visible    ${iframeSubModule}    ${timeout_15s}
+    Wait Until Element Is Visible    ${iframeSubModule}    ${timeout_60s}
     Select Frame    ${iframeSubModule}
     Input Text    ${descriptionSMInput}    ${textDescriptionSM}
     Unselect Frame

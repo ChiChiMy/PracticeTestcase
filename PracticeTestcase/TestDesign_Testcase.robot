@@ -9,7 +9,7 @@ Resource          GeneralXpath.robot
 Resource          KeywordTestDesign.robot
 
 *** Test Cases ***
-Create a new Test Case
+Create a New Test Case
     [Tags]    TC7
     [Setup]    Create New Module For TestDesign    ${textNameModuleDes}
     Wait Until Element Is Visible    ${numberTestCaseDes}    ${timeout_15s}
@@ -91,3 +91,4 @@ Delete a Test Case
     Wait Until Element Is Visible    ${numberTestCaseDes}    ${timeout_15s}
     ${numberTC2}    Get Text    ${numberTestCaseDes}
     Verify Delete Success    ${numberTC1}    ${numberTC2}
+    Click Element    ${moduleDesign}

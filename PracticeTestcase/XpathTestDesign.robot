@@ -11,7 +11,7 @@ ${textPriorityTC}    High
 ${textStatusUpTC}    Ready For Baseline
 ${textTypeUpTC}    Performance
 ${textPriorityUpTC}    Low
-${textprecodition}    precodition
+${textprecodition}    User has logged
 ${textstep1}      input user
 ${textstep2}      click button
 ${textstep1Up}    Input name

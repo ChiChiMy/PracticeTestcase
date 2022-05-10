@@ -37,7 +37,8 @@ ${selectAssign}    //div[text()="API qTest Manager"]//preceding-sibling::div/inp
 ${descriptionReqIframe}    //iframe[@id="descriptionRequirement_editorNode_ifr"]
 ${saveButton}     //span[@id="saveBtnRequirement"]
 ${tabProperties}    //a[@id="moduleTabView_tab_properties"]
-${iframeSubModule}    //div[@class="mce-edit-area mce-container mce-panel mce-stack-layout-item mce-last"]//iframe
+#${iframeSubModule}    //div[@class="mce-edit-area mce-container mce-panel mce-stack-layout-item mce-last"]//iframe
+${iframeSubModule}    //div[@class="mce-container-body mce-stack-layout"]//iframe
 ${descriptionSMInput}    //body[@id="tinymce"]
 ${saveSMButton}    //button[@id="properties_btnSaveAll"]
 ${selectRequirementUp}    //a[@class="ng-star-inserted" and text()="${textNameRequirementUp}"]
